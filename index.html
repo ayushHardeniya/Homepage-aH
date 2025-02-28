@@ -30,15 +30,15 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Headings with boxed style for better visibility */
-    h1, h2, h3, h4 {
+    /* Main Headings for key sections */
+    .main-heading {
       font-family: 'Montserrat', sans-serif;
-      margin-bottom: 1rem;
-      padding: 0.5rem 1rem;
-      background: rgba(100, 255, 218, 0.1);
-      border: 2px solid #64ffda;
-      border-radius: 8px;
+      font-size: 2.2rem;
+      color: #64ffda;
+      border-bottom: 2px solid #64ffda;
+      padding-bottom: 0.5rem;
       text-align: center;
+      margin-bottom: 1rem;
     }
     p {
       margin-bottom: 1rem;
@@ -96,7 +96,7 @@
       cursor: pointer;
       color: #64ffda;
     }
-    /* Section Base with subtle background separation */
+    /* Section Base with subtle separation */
     section {
       padding: 20px 10px;
     }
@@ -114,14 +114,13 @@
       align-items: center;
       text-align: center;
       color: #fff;
+      margin-top: 60px; /* To clear the navbar */
     }
     .hero::before {
       content: "";
       position: absolute;
-      top: 0; 
-      left: 0;
-      width: 100%; 
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.4);
       z-index: 0;
     }
@@ -130,10 +129,17 @@
       z-index: 1;
       padding: 10px;
     }
-    /* Removed hero button per instructions */
-    /* About Section */
-    .about { background-color: #112240; text-align: center; padding: 20px 10px; }
+    /* About Me Section */
+    .about { background-color: #112240; text-align: center; }
     .about .signature { width: 120px; margin: 10px auto; }
+    /* Extended About Content */
+    .about p.extra {
+      max-width: 800px;
+      margin: 10px auto;
+      text-align: left;
+      line-height: 1.8;
+    }
+    /* Timeline */
     .timeline {
       margin-top: 10px;
       text-align: left;
@@ -157,8 +163,8 @@
       background: #64ffda;
       border-radius: 50%;
     }
-    /* Blog Section (Displays short blogs on page) */
-    .blog { background-color: #0a192f; text-align: center; padding: 20px 10px; }
+    /* Blog Section - In-page short blogs */
+    .blog { background-color: #0a192f; text-align: center; }
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -176,27 +182,27 @@
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    /* Projects Section */
-    .projects { background-color: #112240; text-align: center; padding: 20px 10px; }
-    .project-grid {
+    /* Experiments & Explorations Section (replacing Projects) */
+    .experiments { background-color: #112240; text-align: center; }
+    .exp-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 10px;
       max-width: 1200px;
       margin: auto;
     }
-    .project-card {
+    .exp-card {
       background: #0a192f;
       padding: 10px;
       border-radius: 8px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .project-card:hover {
+    .exp-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    /* Journal Section */
-    .journal { background-color: #112240; max-width: 800px; margin: auto; text-align: left; padding: 20px; }
+    /* Learning Journal Section */
+    .journal { background-color: #112240; max-width: 800px; margin: auto; text-align: left; }
     .journal ul { list-style: none; }
     .journal li {
       background: #0a192f;
@@ -204,17 +210,18 @@
       padding: 10px;
       border-radius: 4px;
     }
-    /* Resources Section */
-    .resources { background-color: #112240; text-align: center; padding: 20px 10px; }
+    /* Resources & Recommendations Section */
+    .resources { background-color: #112240; text-align: center; }
     .resources ul { list-style: none; max-width: 800px; margin: auto; padding: 0; }
     .resources li {
       background: #0a192f;
       margin: 5px 0;
       padding: 10px;
       border-radius: 4px;
+      text-align: left;
     }
-    /* Connect Section with Big Squarish Buttons */
-    .connect { background-color: #0a192f; text-align: center; padding: 20px 10px; }
+    /* Social Proof & Connect Section with Big Squarish Buttons */
+    .connect { background-color: #0a192f; text-align: center; }
     .social-large {
       display: flex;
       flex-wrap: wrap;
@@ -243,13 +250,13 @@
     }
     .social-btn i { font-size: 1.8rem; margin-bottom: 5px; }
     .social-btn span { font-size: 0.7rem; }
-    /* Fun Corner Section - Engaging look with emojis and background elements */
+    /* Fun Corner Section - Engaging Look */
     .easter {
       background: linear-gradient(135deg, #0a192f, #112240);
       text-align: center;
       padding: 20px 10px;
     }
-    .easter h1 { font-size: 2rem; }
+    .easter .main-heading { margin-bottom: 10px; }
     .random-thought {
       font-size: 1.3rem;
       margin-bottom: 10px;
@@ -336,7 +343,7 @@
     body.light-mode .hero::before { background: rgba(255, 255, 255, 0.4); }
     body.light-mode .about,
     body.light-mode .blog,
-    body.light-mode .projects,
+    body.light-mode .experiments,
     body.light-mode .journal,
     body.light-mode .resources,
     body.light-mode .connect,
@@ -365,9 +372,9 @@
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#blog">Blog</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#journal">Journal</a></li>
-      <li><a href="#resources">Resources</a></li>
+      <li><a href="#experiments">Experiments &amp; Explorations</a></li>
+      <li><a href="#journal">Learning Journal</a></li>
+      <li><a href="#resources">Resources &amp; Recommendations</a></li>
       <li><a href="#connect">Connect</a></li>
       <li><a href="#easter">Fun Corner</a></li>
     </ul>
@@ -382,7 +389,6 @@
       <h1>Hey, I’m Ayush Hardeniya.</h1>
       <h2>A Curious Explorer &amp; Aspiring Developer</h2>
       <p>Learning, experimenting, and sharing my journey in tech &amp; creativity.</p>
-      <!-- No CTA button here as per instructions -->
     </div>
   </section>
 
@@ -390,8 +396,9 @@
   <section id="about" class="about section-mid">
     <h1>About Me</h1>
     <img src="signwhitetrans1.png" alt="Ayush Signature" class="signature">
-    <p>I’m Ayush—a passionate learner driven by curiosity. I explore coding, video editing, and creative expression to transform challenges into opportunities. My journey is all about continuous growth and discovery.</p>
-    <h2>Learning Milestones</h2>
+    <p>I’m Ayush—a passionate learner driven by curiosity. Growing up in a humble, lower‑middle‑class background, I’ve always believed that challenges are opportunities in disguise. My daily life revolves around exploring new technologies, experimenting with coding, and expressing creativity through video editing and digital design. I am committed to continuous growth, fueled by a mindset that sees every setback as a chance to learn. My vision is to create impactful solutions and inspire others by sharing my journey of relentless exploration.</p>
+    <p class="extra">I thrive on a lifestyle of curiosity and perseverance, and I am constantly seeking out new ideas and inspirations. Whether it's through coding, creative projects, or engaging with like‑minded communities, I am on a mission to transform my passion into progress and make a meaningful impact in the tech world.</p>
+    <h2 class="main-heading">Learning Milestones</h2>
     <div class="timeline">
       <div class="timeline-item">
         <h3>Started Coding</h3>
@@ -417,50 +424,52 @@
     </div>
   </section>
 
-  <!-- Projects & Experiments Section -->
-  <section id="projects" class="projects section-mid">
-    <h1>Projects &amp; Experiments</h1>
-    <p>A showcase of my coding projects, video experiments, and automation scripts.</p>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>To-Do App</h3>
-        <p>A simple JavaScript-based task manager.</p>
+  <!-- Experiments & Explorations Section (Replacing Projects & Experiments) -->
+  <section id="experiments" class="experiments section-mid">
+    <h1>Experiments &amp; Explorations</h1>
+    <p>Here, I document my daily challenges, creative experiments, and learning adventures—from coding challenges to video editing experiments.</p>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <h3>Coding Challenge</h3>
+        <p>Tackling a new coding problem every week to sharpen my skills.</p>
       </div>
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>A basic website to showcase my projects and skills.</p>
+      <div class="exp-card">
+        <h3>Creative Editing</h3>
+        <p>Experimenting with video editing techniques to tell compelling stories.</p>
       </div>
-      <div class="project-card">
-        <h3>Automation Script</h3>
-        <p>A Python script that automates daily tasks.</p>
+      <div class="exp-card">
+        <h3>Automation Fun</h3>
+        <p>Building simple scripts to automate everyday tasks.</p>
       </div>
     </div>
   </section>
 
   <!-- Learning Journal Section -->
   <section id="journal" class="journal section-dark">
-    <h1>Learning Journal</h1>
+    <h1 class="main-heading">Learning Journal</h1>
     <ul>
-      <li>Started exploring React.js!</li>
-      <li>Built my first mini-project: To-Do App.</li>
-      <li>Learning how to create engaging content.</li>
-      <li>Experimenting with video editing software.</li>
+      <li>Started exploring React.js and building interactive UIs!</li>
+      <li>Built my first mini‑project: a To‑Do App with dynamic features.</li>
+      <li>Experimenting with new video editing tools to create engaging content.</li>
+      <li>Sharing quick updates on my daily learning challenges.</li>
     </ul>
   </section>
 
   <!-- Resources & Recommendations Section -->
   <section id="resources" class="resources section-mid">
-    <h1>Resources &amp; Recommendations</h1>
+    <h1 class="main-heading">Resources &amp; Recommendations</h1>
     <ul>
-      <li>The Best Websites I Use for Learning</li>
-      <li>Must-read Books for Aspiring Developers</li>
-      <li>Top Online Courses for Tech Enthusiasts</li>
+      <li><strong>Online Courses:</strong> freeCodeCamp, Codecademy, Coursera, and edX for accessible learning.</li>
+      <li><strong>Development Tools:</strong> VS Code, Git, GitHub, and Figma to boost productivity and creativity.</li>
+      <li><strong>Books:</strong> “Clean Code”, “The Pragmatic Programmer”, and “You Don’t Know JS” for coding best practices.</li>
+      <li><strong>Communities:</strong> Stack Overflow, Reddit, and local tech meetups for support and collaboration.</li>
+      <li><strong>Inspiration:</strong> Follow tech blogs, podcasts, and YouTube channels that align with my passion for continuous learning and creative problem‑solving.</li>
     </ul>
   </section>
 
-  <!-- Social Proof & Connect Section with Big Squarish Buttons -->
+  <!-- Social Proof & Connect Section -->
   <section id="connect" class="connect section-dark">
-    <h1>Social Proof &amp; Connect</h1>
+    <h1 class="main-heading">Social Proof &amp; Connect</h1>
     <div class="social-large">
       <div class="social-btn" onclick="window.open('https://facebook.com/ayushHardeniya', '_blank')">
         <i class="fab fa-facebook"></i>
@@ -508,7 +517,7 @@
 
   <!-- Fun Corner Section -->
   <section id="easter" class="easter section-mid">
-    <h1>Fun Corner 😎</h1>
+    <h1 class="main-heading">Fun Corner 😎</h1>
     <div class="random-thought" id="randomThought">🚀 Your random thought will appear here.</div>
     <button class="fun-btn" onclick="generateRandomThought()">💡 New Thought</button>
     <button class="fun-btn" onclick="toggleFutureLetter()">📜 Show Future Letter</button>
@@ -525,7 +534,7 @@
       <a href="#hero">Home</a> |
       <a href="#about">About</a> |
       <a href="#blog">Blog</a> |
-      <a href="#projects">Projects</a> |
+      <a href="#experiments">Experiments</a> |
       <a href="#journal">Journal</a> |
       <a href="#resources">Resources</a> |
       <a href="#connect">Connect</a> |
