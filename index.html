@@ -92,13 +92,13 @@
     }
     /* Section Base */
     section {
-      padding: 80px 20px;
+      padding: 60px 20px;
       min-height: 100vh;
     }
     /* Hero Section */
     .hero {
       background: url('banneraHnew.png') no-repeat center center;
-      background-size: cover;
+      background-size: contain;
       position: relative;
       height: 100vh;
       display: flex;
@@ -147,7 +147,7 @@
       margin: 20px auto;
     }
     .timeline {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       text-align: left;
       max-width: 800px;
       margin-left: auto;
@@ -246,16 +246,45 @@
       padding: 1rem;
       border-radius: 4px;
     }
-    /* Social Proof & Connect Section (Large Icons) */
+    /* Social Proof & Connect Section with Big Squarish Buttons */
     .connect {
       background-color: #112240;
       text-align: center;
       padding: 2rem;
     }
-    .social-large a {
-      font-size: 1.5rem;
-      margin: 0.5rem 1rem;
-      display: inline-block;
+    .social-large {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .social-btn {
+      background: #0a192f;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+      color: #64ffda;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .social-btn:hover {
+      transform: translateY(-5px);
+      background: #64ffda;
+      color: #0a192f;
+    }
+    .social-btn i {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+    .social-btn span {
+      display: block;
+      font-size: 0.8rem;
     }
     /* Hidden Easter Eggs / Fun Section */ 
     .easter {
@@ -329,10 +358,14 @@
     body.light-mode .hero {
       background-color: rgba(244, 244, 244, 0.9);
     }
+    body.light-mode .hero {
+      background: white; /* In bright mode, hero background is white */
+    }
     body.light-mode .hero h1,
     body.light-mode h2,
     body.light-mode h3,
-    body.light-mode h4 {
+    body.light-mode h4,
+    body.light-mode p {
       color: #333;
     }
     body.light-mode footer {
@@ -344,7 +377,7 @@
   <!-- Navigation Bar -->
   <nav>
     <div class="nav-brand">
-      <!-- Signature asset for dark mode (normal) -->
+      <!-- Dark mode asset for normal mode; will update automatically on mode switch -->
       <img src="signwhitetrans1.png" alt="Ayush Signature" class="signature-nav">
       
     </div>
@@ -368,8 +401,8 @@
   <section id="hero" class="hero">
     <div class="hero-content">
       <h1>Hey, I’m Ayush Hardeniya.</h1>
-      <h2>A Curious Explorer & Aspiring Developer</h2>
-      <p>Learning, experimenting, and sharing my journey in tech & creativity.</p>
+      <h2>A Curious Explorer &amp; Aspiring Developer</h2>
+      <p>Learning, experimenting, and sharing my journey in tech &amp; creativity.</p>
       <a href="https://medium.com/@ayushhardeniya" class="btn">Follow My Journey</a>
     </div>
   </section>
@@ -377,7 +410,6 @@
   <!-- About Me Section -->
   <section id="about" class="about">
     <h2>About Me</h2>
-    <!-- Signature asset for dark mode (normal) -->
     <img src="signwhitetrans1.png" alt="Ayush Signature" class="signature">
     <p>I’m Ayush—a passionate learner driven by curiosity. I explore coding, video editing, and creative expression to transform challenges into opportunities. My journey is all about continuous growth and discovery.</p>
     <h3>Learning Milestones</h3>
@@ -447,20 +479,50 @@
     </ul>
   </section>
 
-  <!-- Social Proof & Connect Section -->
+  <!-- Social Proof & Connect Section with Big Squarish Buttons -->
   <section id="connect" class="connect">
     <h2>Social Proof &amp; Connect</h2>
     <div class="social-large">
-      <a href="https://facebook.com/ayushHardeniya" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-      <a href="https://youtube.com/ayushHardeniya" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
-      <a href="https://instagram.com/ayushHardeniya" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="https://twitter.com/ayushHardeniya" target="_blank"><i class="fab fa-twitter"></i> X</a>
-      <a href="https://github.com/ayushHardeniya" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://gitlab.com/ayushHardeniya" target="_blank"><i class="fab fa-gitlab"></i> GitLab</a>
-      <a href="https://gravatar.com/ayushHardeniya" target="_blank"><i class="fas fa-user-circle"></i> Gravatar</a>
-      <a href="https://snapchat.com/add/ayushHardeniya" target="_blank"><i class="fab fa-snapchat"></i> Snapchat</a>
-      <a href="https://reddit.com/user/ayushHardeniya" target="_blank"><i class="fab fa-reddit"></i> Reddit</a>
-      <a href="https://medium.com/@ayushHardeniya" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+      <div class="social-btn" onclick="window.open('https://facebook.com/ayushHardeniya', '_blank')">
+        <i class="fab fa-facebook"></i>
+        <span>Facebook</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://youtube.com/ayushHardeniya', '_blank')">
+        <i class="fab fa-youtube"></i>
+        <span>YouTube</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://instagram.com/ayushHardeniya', '_blank')">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://twitter.com/ayushHardeniya', '_blank')">
+        <i class="fab fa-twitter"></i>
+        <span>X</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://github.com/ayushHardeniya', '_blank')">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://gitlab.com/ayushHardeniya', '_blank')">
+        <i class="fab fa-gitlab"></i>
+        <span>GitLab</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://gravatar.com/ayushHardeniya', '_blank')">
+        <i class="fas fa-user-circle"></i>
+        <span>Gravatar</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://snapchat.com/add/ayushHardeniya', '_blank')">
+        <i class="fab fa-snapchat"></i>
+        <span>Snapchat</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://reddit.com/user/ayushHardeniya', '_blank')">
+        <i class="fab fa-reddit"></i>
+        <span>Reddit</span>
+      </div>
+      <div class="social-btn" onclick="window.open('https://medium.com/@ayushHardeniya', '_blank')">
+        <i class="fab fa-medium"></i>
+        <span>Medium</span>
+      </div>
     </div>
     <p>Let's Connect at <a href="mailto:ayushhardeniya.vn@outlook.in">ayushhardeniya.vn@outlook.in</a></p>
   </section>
@@ -475,7 +537,6 @@
     <div class="future-letter" id="futureLetter">
       <h3>Dear Future Me,</h3>
       <p>Keep pushing boundaries, stay curious, and continue learning every day. I believe in your journey—never stop exploring!</p>
-      <!-- For dark/normal mode, signature asset is signwhitetrans1.png; in bright mode, it will update automatically -->
       <img src="signwhitetrans1.png" alt="Signature" style="width:150px; margin-top:10px;" class="future-signature">
     </div>
   </section>
@@ -506,7 +567,7 @@
       if(document.body.classList.contains('light-mode')) {
         // Update toggle icon to moon (indicating click to switch back to dark)
         modeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        // Update all signature images to bright mode asset
+        // Update signature images to bright mode asset
         document.querySelectorAll('.signature, .signature-nav, .future-signature').forEach(img => {
           img.src = 'signblacktrans1.png';
         });
@@ -574,4 +635,4 @@
     window.onload = loadBlogPosts;
   </script>
 </body>
-  </html>
+</html>
