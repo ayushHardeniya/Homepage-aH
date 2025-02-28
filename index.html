@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ayush Hardeniya | Personal Branding</title>
+  <!-- Google Fonts for Headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     /* Reset & Base Styles */
     * {
@@ -28,6 +32,7 @@
     }
     h1, h2, h3, h4 {
       margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
       color: #64ffda;
     }
     p {
@@ -77,6 +82,13 @@
     .dark-mode-toggle:hover {
       background: #64ffda;
       color: #0a192f;
+    }
+    /* Hamburger Menu (Mobile) */
+    #hamburger {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #64ffda;
     }
     /* Section Base */
     section {
@@ -156,6 +168,7 @@
     /* Blog/Articles Section */
     .blog {
       background-color: #112240;
+      text-align: center;
     }
     .blog-grid {
       display: grid;
@@ -177,6 +190,7 @@
     /* Projects & Experiments Section */
     .projects {
       background-color: #0a192f;
+      text-align: center;
     }
     .project-grid {
       display: grid;
@@ -200,6 +214,7 @@
       background-color: #112240;
       max-width: 800px;
       margin: auto;
+      text-align: left;
     }
     .journal ul {
       list-style: none;
@@ -227,21 +242,16 @@
       padding: 1rem;
       border-radius: 4px;
     }
-    /* Social Proof & Connect Section */
+    /* Social Proof & Connect Section (Large Icons) */
     .connect {
       background-color: #112240;
       text-align: center;
+      padding: 2rem;
     }
-    .testimonials {
-      max-width: 800px;
-      margin: auto;
-      text-align: left;
-    }
-    .testimonial {
-      background: #0a192f;
-      padding: 1rem;
-      margin: 0.5rem 0;
-      border-left: 3px solid #64ffda;
+    .social-large a {
+      font-size: 1.5rem;
+      margin: 0.5rem 1rem;
+      display: inline-block;
     }
     /* Hidden Easter Eggs / Fun Section */ 
     .easter {
@@ -269,22 +279,56 @@
     .future-letter.active {
       display: block;
     }
-    /* Footer */ 
+    /* Footer with Social Icons */
     footer {
       background-color: #0a192f;
       text-align: center;
       padding: 1rem;
       color: #8892b0;
     }
-    /* Light Mode Overrides */ 
+    footer .social-icons a {
+      font-size: 1.5rem;
+      margin: 0 10px;
+      color: #64ffda;
+      transition: transform 0.3s ease;
+    }
+    footer .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    /* Responsive & Hamburger Menu */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: rgba(10, 25, 47, 0.95);
+        padding: 1rem;
+        border-radius: 4px;
+        animation: rollIn 0.5s forwards;
+      }
+      #hamburger {
+        display: block;
+      }
+    }
+    @keyframes rollIn {
+      from { transform: rotateX(-90deg); opacity: 0; }
+      to { transform: rotateX(0deg); opacity: 1; }
+    }
+    /* Light Mode Overrides */
     body.light-mode {
       background-color: #f4f4f4;
       color: #333;
     }
-    body.light-mode nav, body.light-mode .hero {
+    body.light-mode nav,
+    body.light-mode .hero {
       background-color: rgba(244, 244, 244, 0.9);
     }
-    body.light-mode .hero h1, body.light-mode h2, body.light-mode h3, body.light-mode h4 {
+    body.light-mode .hero h1,
+    body.light-mode h2,
+    body.light-mode h3,
+    body.light-mode h4 {
       color: #333;
     }
     body.light-mode footer {
@@ -296,9 +340,10 @@
   <!-- Navigation Bar -->
   <nav>
     <div class="nav-brand">
-      <img src="signblacktrans.pnh" alt="Ayush Signature">
-      <span>Ayush Hardeniya</span>
+      <img src="signblacktrans.png" alt="Ayush Signature" height="85" width="232">
+      
     </div>
+    <div id="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     <ul class="nav-links">
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -326,7 +371,7 @@
   <section id="about" class="about">
     <h2>About Me</h2>
     <img src="signblacktrans.jpg" alt="Ayush Signature" class="signature">
-    <p>I'm Ayush—a passionate learner driven by curiosity. I explore coding, video editing, and creative expression to transform challenges into opportunities. My journey is all about continuous growth and discovery.</p>
+    <p>I’m Ayush—a passionate learner driven by curiosity. I explore coding, video editing, and creative expression to transform challenges into opportunities. My journey is all about continuous growth and discovery.</p>
     <h3>Learning Milestones</h3>
     <div class="timeline">
       <div class="timeline-item">
@@ -397,28 +442,19 @@
   <!-- Social Proof & Connect Section -->
   <section id="connect" class="connect">
     <h2>Social Proof & Connect</h2>
-    <p>Testimonials</p>
-    <div class="testimonials">
-      <div class="testimonial">
-        <p>“Ayush's dedication and eagerness to learn are truly inspiring.” - Mentor</p>
-      </div>
-      <div class="testimonial">
-        <p>“A promising explorer in the tech world.” - Friend</p>
-      </div>
+    <div class="social-large">
+      <a href="https://facebook.com/ayushHardeniya" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="https://youtube.com/ayushHardeniya" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="https://instagram.com/ayushHardeniya" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://twitter.com/ayushHardeniya" target="_blank"><i class="fab fa-twitter"></i> X</a>
+      <a href="https://github.com/ayushHardeniya" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://gitlab.com/ayushHardeniya" target="_blank"><i class="fab fa-gitlab"></i> GitLab</a>
+      <a href="https://gravatar.com/ayushHardeniya" target="_blank"><i class="fas fa-user-circle"></i> Gravatar</a>
+      <a href="https://snapchat.com/add/ayushHardeniya" target="_blank"><i class="fab fa-snapchat"></i> Snapchat</a>
+      <a href="https://reddit.com/user/ayushHardeniya" target="_blank"><i class="fab fa-reddit"></i> Reddit</a>
+      <a href="https://medium.com/@ayushHardeniya" target="_blank"><i class="fab fa-medium"></i> Medium</a>
     </div>
-    <p>Let's Connect: <a href="mailto:ayushhardeniya.vn@outlook.in">ayushhardeniya.vn@outlook.in</a></p>
-    <p>Follow me: 
-      <a href="https://facebook.com/ayushHardeniya">Facebook</a> | 
-      <a href="https://twitter.com/ayushHardeniya">Twitter</a> | 
-      <a href="https://instagram.com/ayushHardeniya">Instagram</a> | 
-      <a href="https://linkedin.com/in/ayushHardeniya">LinkedIn</a> |
-      <a href="https://gravatar.com/in/ayushHardeniya">Gravatar</a> |
-      <a href="https://youtube.com/in/ayushHardeniya">YouTube</a> |
-      <a href="https://reddit.com/in/ayushHardeniya">Reddit</a> |
-      <a href="https://gitlab.com/in/ayushHardeniya">GitLab</a> |
-      <a href="mailto: ayushhardeniya.vn@outlook.in">E-Mail</a>
-        
-    </p>
+    <p>Let's Connect at <a href="mailto:ayushhardeniya.vn@outlook.in">ayushhardeniya.vn@outlook.in</a></p>
   </section>
 
   <!-- Hidden Easter Eggs / Fun Section -->
@@ -435,8 +471,20 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer --> 
   <footer>
+    <div class="social-icons">
+      <a href="https://youtube.com/ayushHardeniya" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://instagram.com/ayushHardeniya" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/ayushHardeniya" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/ayushHardeniya" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/ayushHardeniya" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://gitlab.com/ayushHardeniya" target="_blank"><i class="fab fa-gitlab"></i></a>
+      <a href="https://gravatar.com/ayushHardeniya" target="_blank"><i class="fas fa-user-circle"></i></a>
+      <a href="https://snapchat.com/add/ayushHardeniya" target="_blank"><i class="fab fa-snapchat"></i></a>
+      <a href="https://reddit.com/user/ayushHardeniya" target="_blank"><i class="fab fa-reddit"></i></a>
+      <a href="https://medium.com/@ayushHardeniya" target="_blank"><i class="fab fa-medium"></i></a>
+    </div>
     <p>&copy; 2025 Ayush Hardeniya. All rights reserved.</p>
   </footer>
 
@@ -444,6 +492,17 @@
     // Dark Mode Toggle
     function toggleDarkMode() {
       document.body.classList.toggle('light-mode');
+    }
+
+    // Hamburger Menu Toggle
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+      }
     }
 
     // Dynamic Blog Posts (Simulation)
@@ -470,6 +529,7 @@
       'Code. Learn. Repeat.',
       'Creativity is intelligence having fun!'
     ];
+
     function generateRandomThought() {
       const thoughtElement = document.getElementById('randomThought');
       const randomIndex = Math.floor(Math.random() * thoughts.length);
