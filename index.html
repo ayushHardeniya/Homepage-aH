@@ -1,81 +1,491 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush Hardeniya | Personal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ayush Hardeniya | Personal Branding</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background-color: #0a192f;
+      color: #ccd6f6;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a {
+      color: #64ffda;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h1, h2, h3, h4 {
+      margin-bottom: 1rem;
+      color: #64ffda;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 25, 47, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+    }
+    .nav-brand img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links li {
+      display: inline;
+    }
+    .dark-mode-toggle {
+      background: none;
+      border: 1px solid #64ffda;
+      color: #64ffda;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .dark-mode-toggle:hover {
+      background: #64ffda;
+      color: #0a192f;
+    }
+    /* Section Base */
+    section {
+      padding: 100px 20px;
+      min-height: 100vh;
+    }
+    /* Hero Section */
+    .hero {
+      background: url('banneraHnew.png') no-repeat center center/cover;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero .btn {
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      border: none;
+      background-color: #64ffda;
+      color: #0a192f;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .hero .btn:hover {
+      background-color: #52cca8;
+    }
+    /* About Me Section */
+    .about {
+      background-color: #0a192f;
+      text-align: center;
+    }
+    .about .signature {
+      width: 150px;
+      margin: 20px auto;
+    }
+    .timeline {
+      margin-top: 2rem;
+      text-align: left;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid #64ffda;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 1rem;
+      width: 16px;
+      height: 16px;
+      background: #64ffda;
+      border-radius: 50%;
+    }
+    /* Blog/Articles Section */
+    .blog {
+      background-color: #112240;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .blog-card {
+      background: #0a192f;
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    /* Projects & Experiments Section */
+    .projects {
+      background-color: #0a192f;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .project-card {
+      background: #112240;
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    /* Learning Journal Section */
+    .journal {
+      background-color: #112240;
+      max-width: 800px;
+      margin: auto;
+    }
+    .journal ul {
+      list-style: none;
+    }
+    .journal li {
+      background: #0a192f;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+    /* Resources & Recommendations Section */
+    .resources {
+      background-color: #0a192f;
+      text-align: center;
+    }
+    .resources ul {
+      list-style: none;
+      max-width: 800px;
+      margin: auto;
+      padding: 0;
+    }
+    .resources li {
+      background: #112240;
+      margin: 0.5rem 0;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+    /* Social Proof & Connect Section */
+    .connect {
+      background-color: #112240;
+      text-align: center;
+    }
+    .testimonials {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+    }
+    .testimonial {
+      background: #0a192f;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-left: 3px solid #64ffda;
+    }
+    /* Hidden Easter Eggs / Fun Section */ 
+    .easter {
+      background-color: #0a192f;
+      text-align: center;
+      padding: 2rem;
+    }
+    .random-thought {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .random-thought.show {
+      opacity: 1;
+    }
+    .future-letter {
+      max-width: 800px;
+      margin: auto;
+      background: #112240;
+      padding: 1.5rem;
+      border-radius: 8px;
+      display: none;
+    }
+    .future-letter.active {
+      display: block;
+    }
+    /* Footer */ 
+    footer {
+      background-color: #0a192f;
+      text-align: center;
+      padding: 1rem;
+      color: #8892b0;
+    }
+    /* Light Mode Overrides */ 
+    body.light-mode {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    body.light-mode nav, body.light-mode .hero {
+      background-color: rgba(244, 244, 244, 0.9);
+    }
+    body.light-mode .hero h1, body.light-mode h2, body.light-mode h3, body.light-mode h4 {
+      color: #333;
+    }
+    body.light-mode footer {
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="profilePic.jpg" alt="Ayush Hardeniya Logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#blogs">Blogs</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Ayush Hardeniya</h1>
-        <p>Student | Video Editor | High-End Coder</p>
-    </section>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-brand">
+      <img src="signblacktrans.pnh" alt="Ayush Signature">
+      <span>Ayush Hardeniya</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#journal">Journal</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#connect">Connect</a></li>
+      <li><a href="#easter">Easter Eggs</a></li>
+    </ul>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Mode</button>
+  </nav>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>I'm Ayush Hardeniya, a passionate coder and video editor. Focused, dedicated, and constantly learning.</p>
-    </section>
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>Hey, I’m Ayush Hardeniya.</h1>
+      <h2>A Curious Explorer & Aspiring Developer</h2>
+      <p>Learning, experimenting, and sharing my journey in tech & creativity.</p>
+      <a href="https://medium.com/@ayushhardeniya" class="btn">Follow My Journey</a>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2>Skills & Expertise</h2>
-        <p>Programming: C, C++, Python</p>
-        <p>Video Editing: Premiere Pro, After Effects</p>
-        <p>Web Development: HTML, CSS, JavaScript</p>
-    </section>
+  <!-- About Me Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <img src="signblacktrans.jpg" alt="Ayush Signature" class="signature">
+    <p>I'm Ayush—a passionate learner driven by curiosity. I explore coding, video editing, and creative expression to transform challenges into opportunities. My journey is all about continuous growth and discovery.</p>
+    <h3>Learning Milestones</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>Started Coding</h4>
+        <p>Began my journey with HTML & CSS.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>First Website</h4>
+        <p>Created my first basic website to showcase my work.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Exploring JavaScript</h4>
+        <p>Dove into dynamic web development and interactivity.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-        <p>Coming soon...</p>
-    </section>
+  <!-- Blog/Articles Section -->
+  <section id="blog" class="blog">
+    <h2>Blog & Articles</h2>
+    <p>Discover my thoughts and what I’m learning.</p>
+    <div class="blog-grid" id="blogGrid">
+      <!-- Blog posts injected dynamically -->
+    </div>
+  </section>
 
-    <!-- Blogs Section -->
-    <section id="blogs" class="section">
-        <h2>Latest Blogs</h2>
-        <div id="blog-container">Loading blogs...</div>
-    </section>
+  <!-- Projects & Experiments Section -->
+  <section id="projects" class="projects">
+    <h2>Projects & Experiments</h2>
+    <p>A showcase of my coding projects, video experiments, and automation scripts.</p>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>To-Do App</h3>
+        <p>A simple JavaScript-based task manager.</p>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A basic website to showcase my projects and skills.</p>
+      </div>
+      <div class="project-card">
+        <h3>Automation Script</h3>
+        <p>A Python script that automates daily tasks.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:ayushhardeniya.vn@outlook.in">collab@ayushhardeniya.com</a></p>
-      <br>
-      <h2> Find ayushHardeniya On-</h2>
-        <div class="social-links">
-            <a href="https://facebook.com/ayushHardeniya" target="_blank">Facebook</a> |
-            <a href="https://youtube.com/@ayushHardeniya" target="_blank">YouTube</a> |
-            <a href="https://instagram.com/ayushHardeniya" target="_blank">Instagram</a> |
-            <a href="https://twitter.com/ayushHardeniya" target="_blank">Twitter</a> |
-            <a href="https://linkedin.com/in/ayushHardeniya" target="_blank">LinkedIn</a> |
-            <a href="https://github.com/ayushHardeniya" target="_blank">GitHub</a> |
-            <a href="https://gravatar.com/ayushHardeniya" target="_blank">Gravatar</a>
-        </div>
-    </section>
+  <!-- Learning Journal Section -->
+  <section id="journal" class="journal">
+    <h2>Learning Journal</h2>
+    <ul>
+      <li>Started exploring React.js!</li>
+      <li>Built my first mini-project: To-Do App.</li>
+      <li>Learning how to create engaging content.</li>
+      <li>Experimenting with video editing software.</li>
+    </ul>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2024 Ayush Hardeniya. All Rights Reserved.</p>
-    </footer>
+  <!-- Resources & Recommendations Section -->
+  <section id="resources" class="resources">
+    <h2>Resources & Recommendations</h2>
+    <ul>
+      <li>The Best Websites I Use for Learning</li>
+      <li>Must-read Books for Aspiring Developers</li>
+      <li>Top Online Courses for Tech Enthusiasts</li>
+    </ul>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Social Proof & Connect Section -->
+  <section id="connect" class="connect">
+    <h2>Social Proof & Connect</h2>
+    <p>Testimonials</p>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>“Ayush's dedication and eagerness to learn are truly inspiring.” - Mentor</p>
+      </div>
+      <div class="testimonial">
+        <p>“A promising explorer in the tech world.” - Friend</p>
+      </div>
+    </div>
+    <p>Let's Connect: <a href="mailto:ayushhardeniya.vn@outlook.in">ayushhardeniya.vn@outlook.in</a></p>
+    <p>Follow me: 
+      <a href="https://facebook.com/ayushHardeniya">Facebook</a> | 
+      <a href="https://twitter.com/ayushHardeniya">Twitter</a> | 
+      <a href="https://instagram.com/ayushHardeniya">Instagram</a> | 
+      <a href="https://linkedin.com/in/ayushHardeniya">LinkedIn</a> |
+      <a href="https://gravatar.com/in/ayushHardeniya">Gravatar</a> |
+      <a href="https://youtube.com/in/ayushHardeniya">YouTube</a> |
+      <a href="https://reddit.com/in/ayushHardeniya">Reddit</a> |
+      <a href="https://gitlab.com/in/ayushHardeniya">GitLab</a> |
+      <a href="mailto: ayushhardeniya.vn@outlook.in">E-Mail</a>
+        
+    </p>
+  </section>
+
+  <!-- Hidden Easter Eggs / Fun Section -->
+  <section id="easter" class="easter">
+    <h2>Fun Corner</h2>
+    <div class="random-thought" id="randomThought">Your random thought will appear here.</div>
+    <button onclick="generateRandomThought()">New Thought</button>
+    <br><br>
+    <button onclick="toggleFutureLetter()">Show My Future Self Letter</button>
+    <div class="future-letter" id="futureLetter">
+      <h3>Dear Future Me,</h3>
+      <p>Keep pushing boundaries, stay curious, and continue learning every day. I believe in your journey—never stop exploring!</p>
+      <img src="signblacktrans.jpg" alt="Signature" style="width:150px; margin-top:10px;">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ayush Hardeniya. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Dark Mode Toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle('light-mode');
+    }
+
+    // Dynamic Blog Posts (Simulation)
+    const blogPosts = [
+      { title: 'My First Steps in C Programming', summary: 'Diving into the basics of C, learning syntax and solving simple problems.', link: '#' },
+      { title: 'How I Manage My 3 AM Routine', summary: 'A peek into my late-night coding sessions and the habits that keep me going.', link: '#' },
+      { title: 'Exploring Creative Coding', summary: 'Experimenting with art and code to bring creative ideas to life.', link: '#' }
+    ];
+
+    function loadBlogPosts() {
+      const blogGrid = document.getElementById('blogGrid');
+      blogPosts.forEach(post => {
+        const card = document.createElement('div');
+        card.className = 'blog-card';
+        card.innerHTML = `<h3>${post.title}</h3><p>${post.summary}</p><a href="${post.link}">Read More</a>`;
+        blogGrid.appendChild(card);
+      });
+    }
+
+    // Random Thought Generator
+    const thoughts = [
+      'Consistency beats motivation!',
+      'Every expert was once a beginner.',
+      'Code. Learn. Repeat.',
+      'Creativity is intelligence having fun!'
+    ];
+    function generateRandomThought() {
+      const thoughtElement = document.getElementById('randomThought');
+      const randomIndex = Math.floor(Math.random() * thoughts.length);
+      thoughtElement.textContent = thoughts[randomIndex];
+      thoughtElement.classList.add('show');
+      setTimeout(() => { thoughtElement.classList.remove('show'); }, 3000);
+    }
+
+    // Toggle Future Self Letter
+    function toggleFutureLetter() {
+      const letter = document.getElementById('futureLetter');
+      letter.classList.toggle('active');
+    }
+
+    // Load dynamic blog posts on page load
+    window.onload = loadBlogPosts;
+  </script>
 </body>
-              </html>
-  
+</html>
