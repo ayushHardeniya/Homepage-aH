@@ -53,6 +53,7 @@
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
+      transition: background-color 0.3s ease;
     }
     .nav-brand {
       display: flex;
@@ -77,7 +78,7 @@
       padding: 0.5rem 1rem;
       cursor: pointer;
       border-radius: 4px;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease;
     }
     .dark-mode-toggle:hover {
       background: #64ffda;
@@ -92,8 +93,7 @@
     }
     /* Section Base */
     section {
-      padding: 60px 20px;
-      min-height: 100vh;
+      padding: 40px 20px;
     }
     /* Hero Section */
     .hero {
@@ -250,7 +250,7 @@
     .connect {
       background-color: #112240;
       text-align: center;
-      padding: 2rem;
+      padding: 20px;
     }
     .social-large {
       display: flex;
@@ -286,11 +286,11 @@
       display: block;
       font-size: 0.8rem;
     }
-    /* Hidden Easter Eggs / Fun Section */ 
+    /* Hidden Easter Eggs / Fun Section */
     .easter {
       background-color: #0a192f;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 20px;
     }
     .random-thought {
       font-size: 1.3rem;
@@ -312,11 +312,27 @@
     .future-letter.active {
       display: block;
     }
+    .fun-btn {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #64ffda;
+      color: #0a192f;
+      margin: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .fun-btn:hover {
+      background: #52cca8;
+      transform: scale(1.05);
+    }
     /* Footer with Social Icons */
     footer {
       background-color: #0a192f;
       text-align: center;
-      padding: 1rem;
+      padding: 20px 10px;
       color: #8892b0;
     }
     footer .social-icons a {
@@ -351,24 +367,42 @@
     }
     /* Light Mode Overrides */
     body.light-mode {
-      background-color: #f4f4f4;
+      background-color: #fff;
       color: #333;
     }
-    body.light-mode nav,
-    body.light-mode .hero {
-      background-color: rgba(244, 244, 244, 0.9);
+    body.light-mode nav {
+      background-color: #fff;
     }
     body.light-mode .hero {
-      background: white; /* In bright mode, hero background is white */
-    }
-    body.light-mode .hero h1,
-    body.light-mode h2,
-    body.light-mode h3,
-    body.light-mode h4,
-    body.light-mode p {
+      background: #fff; /* In bright mode, hero background becomes white */
       color: #333;
+    }
+    body.light-mode .hero::before {
+      background: rgba(255, 255, 255, 0.4);
+    }
+    body.light-mode .about,
+    body.light-mode .blog,
+    body.light-mode .projects,
+    body.light-mode .journal,
+    body.light-mode .resources,
+    body.light-mode .connect,
+    body.light-mode .easter {
+      background-color: #fff;
+      color: #333;
+    }
+    body.light-mode .btn {
+      background-color: #64ffda;
+      color: #0a192f;
+    }
+    body.light-mode a {
+      color: #064273;
+    }
+    body.light-mode .dark-mode-toggle {
+      border-color: #064273;
+      color: #064273;
     }
     body.light-mode footer {
+      background-color: #fff;
       color: #666;
     }
   </style>
@@ -377,7 +411,7 @@
   <!-- Navigation Bar -->
   <nav>
     <div class="nav-brand">
-      <!-- Dark mode asset for normal mode; will update automatically on mode switch -->
+      <!-- Signature asset for dark mode; will update on mode switch -->
       <img src="signwhitetrans1.png" alt="Ayush Signature" class="signature-nav">
       
     </div>
@@ -531,9 +565,8 @@
   <section id="easter" class="easter">
     <h2>Fun Corner</h2>
     <div class="random-thought" id="randomThought">Your random thought will appear here.</div>
-    <button onclick="generateRandomThought()">New Thought</button>
-    <br><br>
-    <button onclick="toggleFutureLetter()">Show My Future Self Letter</button>
+    <button class="fun-btn" onclick="generateRandomThought()">New Thought</button>
+    <button class="fun-btn" onclick="toggleFutureLetter()">Show My Future Self Letter</button>
     <div class="future-letter" id="futureLetter">
       <h3>Dear Future Me,</h3>
       <p>Keep pushing boundaries, stay curious, and continue learning every day. I believe in your journey—never stop exploring!</p>
@@ -541,7 +574,7 @@
     </div>
   </section>
 
-  <!-- Footer --> 
+  <!-- Footer -->
   <footer>
     <div class="social-icons">
       <a href="https://youtube.com/ayushHardeniya" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -565,16 +598,14 @@
       const modeToggle = document.getElementById('modeToggle');
       // If light-mode (bright mode) is active:
       if(document.body.classList.contains('light-mode')) {
-        // Update toggle icon to moon (indicating click to switch back to dark)
         modeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        // Update signature images to bright mode asset
+        // Update signature images for bright mode
         document.querySelectorAll('.signature, .signature-nav, .future-signature').forEach(img => {
           img.src = 'signblacktrans1.png';
         });
       } else {
-        // Dark mode: show sun icon (indicating option for bright mode)
         modeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        // Update signature images to dark mode asset
+        // Update signature images for dark mode
         document.querySelectorAll('.signature, .signature-nav, .future-signature').forEach(img => {
           img.src = 'signwhitetrans1.png';
         });
