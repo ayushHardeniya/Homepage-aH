@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ayush Hardeniya | Personal Branding</title>
-  <!-- Google Fonts for Headings -->
+  <!-- google font import for Headings -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons CDN -->
+  <!-- Font-awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     /* Reset & Base Styles */
@@ -31,7 +31,6 @@
     a:hover {
       text-decoration: underline;
     }
-    /* Main Headings for key sections */
     .main-heading {
       font-family: 'Montserrat', sans-serif;
       font-size: 2.5rem;
@@ -48,7 +47,7 @@
       max-width: 100%;
       height: auto;
     }
-    /* Navigation Bar */
+    
     nav {
       position: fixed;
       top: 0;
@@ -90,21 +89,21 @@
       background: #64ffda;
       color: #0a192f;
     }
-    /* Hamburger Menu (Mobile) */
+    
     #hamburger {
       display: none;
       font-size: 1.5rem;
       cursor: pointer;
       color: #64ffda;
     }
-    /* Section Base with subtle separation */
+    
     section {
       padding: 20px 10px;
       animation: fadeIn 0.5s ease;
     }
     .section-dark { background-color: #0a192f; }
     .section-mid { background-color: #112240; }
-    /* Hero Section */
+    
     .hero {
       background: url('banneraHnew.png') no-repeat center center;
       background-size: cover;
@@ -116,7 +115,7 @@
       align-items: center;
       text-align: center;
       color: #fff;
-      margin-top: 60px; /* To clear the navbar */
+      margin-top: 60px; /* to clear the navbar */
     }
     .hero::before {
       content: "";
@@ -143,17 +142,15 @@
     .cta-button:hover {
       background-color: #52cca8;
     }
-    /* About Me Section */
     .about { background-color: #112240; text-align: center; }
     .about .signature { width: 120px; margin: 10px auto; }
-    /* Extended About Content */
     .about p.extra {
       max-width: 800px;
       margin: 10px auto;
       text-align: left;
       line-height: 1.8;
     }
-    /* Timeline */
+    
     .timeline {
       margin-top: 10px;
       text-align: left;
@@ -177,7 +174,7 @@
       background: #64ffda;
       border-radius: 50%;
     }
-    /* Blog Section - In-page short blogs */
+    
     .blog { background-color: #0a192f; text-align: center; }
     .blog-grid {
       display: grid;
@@ -196,7 +193,8 @@
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    /* Experiments & Explorations Section (replacing Projects) */
+
+    /*experiment section, just checkup*/
     .experiments { background-color: #112240; text-align: center; }
     .exp-grid {
       display: grid;
@@ -215,7 +213,7 @@
       transform: translateY(-3px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    /* Learning Journal Section */
+    /* learning Journal section */
     .journal { background-color: #112240; max-width: 800px; margin: auto; text-align: left; }
     .journal ul { list-style: none; }
     .journal li {
@@ -224,7 +222,7 @@
       padding: 10px;
       border-radius: 4px;
     }
-    /* Resources & Recommendations Section */
+    /* resources & recommendations Section */
     .resources { background-color: #112240; text-align: center; }
     .resources ul { list-style: none; max-width: 800px; margin: auto; padding: 0; }
     .resources li {
@@ -234,7 +232,7 @@
       border-radius: 4px;
       text-align: left;
     }
-    /* Social Proof & Connect Section with Big Squarish Buttons */
+    /* aocial Proof & connect Section + big Squarish Buttons */
     .connect { background-color: #0a192f; text-align: center; }
     .social-large {
       display: flex;
@@ -264,7 +262,8 @@
     }
     .social-btn i { font-size: 1.8rem; margin-bottom: 5px; }
     .social-btn span { font-size: 0.7rem; }
-    /* Fun Corner Section - Engaging Look */
+    
+    /* Fun Corner Section- experimentation */
     .easter {
       background: linear-gradient(135deg, #0a192f, #112240);
       text-align: center;
@@ -300,7 +299,7 @@
       display: none;
     }
     .future-letter.active { display: block; }
-    /* Footer with Quick Navigation and Social Icons */
+    
     footer {
       background-color: #000;
       text-align: center;
@@ -347,7 +346,8 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    /* Light Mode Overrides */
+    
+    /* light mode Overrides */
     body.light-mode {
       background-color: #fff;
       color: #333;
@@ -379,7 +379,7 @@
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
+  
   <nav>
     <div class="nav-brand">
       <img src="signwhitetrans1.png" alt="Ayush Signature" class="signature-nav">
@@ -401,7 +401,6 @@
     </button>
   </nav>
 
-  <!-- Hero Section -->
   <section id="hero" class="hero section-dark">
     <div class="hero-content">
       <h1>Hey, I’m Ayush Hardeniya.</h1>
@@ -411,7 +410,6 @@
     </div>
   </section>
 
-  <!-- About Me Section -->
   <section id="about" class="about section-mid">
     <h1 class="main-heading">About Me</h1>
     <img src="signwhitetrans1.png" alt="Ayush Signature" class="signature">
@@ -434,16 +432,14 @@
     </div>
   </section>
 
-  <!-- Blog/Articles Section -->
   <section id="blog" class="blog section-dark">
     <h1 class="main-heading">Blog &amp; Articles</h1>
     <p>Discover my thoughts and what I’m learning.</p>
     <div class="blog-grid" id="blogGrid">
-      <!-- Blog posts injected dynamically -->
+      <!-- Blog posts injected dynamically RSS FEED from medium with vercel server + rss2json-->
     </div>
   </section>
 
-  <!-- Experiments & Explorations Section -->
   <section id="experiments" class="experiments section-mid">
     <h1 class="main-heading">Experiments &amp; Explorations</h1>
     <p>Here, I document my daily challenges, creative experiments, and learning adventures—from coding challenges to video editing experiments.</p>
@@ -463,7 +459,6 @@
     </div>
   </section>
 
-  <!-- Learning Journal Section -->
   <section id="journal" class="journal section-dark">
     <h1 class="main-heading">Learning Journal</h1>
     <ul>
@@ -474,7 +469,7 @@
     </ul>
   </section>
 
-  <!-- Resources & Recommendations Section -->
+  <!-- resources & recommendations section -->
   <section id="resources" class="resources section-mid">
     <h1 class="main-heading">Resources &amp; Recommendations</h1>
     <ul>
@@ -486,7 +481,7 @@
     </ul>
   </section>
 
-  <!-- Social Proof & Connect Section -->
+  <!-- Social + Connect Section -->
   <section id="connect" class="connect section-dark">
     <h1 class="main-heading">Social Proof &amp; Connect</h1>
     <div class="social-large">
@@ -534,7 +529,7 @@
     <p>Let's Connect at <a href="mailto:ayushhardeniya.vn@outlook.in">ayushhardeniya.vn@outlook.in</a></p>
   </section>
 
-  <!-- Fun Corner Section -->
+  <!-- Fun Corner- experimentation -->
   <section id="easter" class="easter section-mid">
     <h1 class="main-heading">Fun Corner 😎</h1>
     <div class="random-thought" id="randomThought">🚀 Your random thought will appear here.</div>
@@ -547,7 +542,6 @@
     </div>
   </section>
 
-  <!-- Footer with Quick Navigation and Social Icons -->
   <footer>
     <div class="footer-nav">
       <a href="#hero">Home</a> |
@@ -575,7 +569,7 @@
   </footer>
 
   <script>
-    // Toggle Dark/Bright Mode with Icon Switch & Update Signature Images
+    /* Toggle Dark/Bright Mode with Icon Switch & Update Signature Images */
     function toggleDarkMode() {
       document.body.classList.toggle('light-mode');
       const modeToggle = document.getElementById('modeToggle');
@@ -592,14 +586,14 @@
       }
     }
 
-    // Hamburger Menu Toggle
+    /* Hamburger Menu Toggle */
     function toggleMenu() {
       const navLinks = document.querySelector('.nav-links');
       navLinks.style.display = (navLinks.style.display === 'flex') ? 'none' : 'flex';
       navLinks.style.flexDirection = 'column';
     }
 
-    // Dynamic Blog Posts (Simulation)
+    /* Dynamic Blog Posts (Simulation) */
     const blogPosts = [
       { title: 'My First Steps in C Programming', excerpt: 'Diving into the basics of C, learning syntax and solving simple problems.' },
       { title: 'How I Manage My 3 AM Routine', excerpt: 'A peek into my late-night coding sessions and the habits that keep me going.' },
@@ -616,7 +610,7 @@
       });
     }
 
-    // Random Thought Generator
+    /* random Thought Generator */
     const thoughts = [
       '🚀 Consistency beats motivation!',
       '🌟 Every expert was once a beginner.',
@@ -632,7 +626,7 @@
       setTimeout(() => { thoughtElement.classList.remove('show'); }, 3000);
     }
 
-    // Toggle Future Self Letter
+    /* Toggle Future Self Letter */
     function toggleFutureLetter() {
       const letter = document.getElementById('futureLetter');
       letter.classList.toggle('active');
