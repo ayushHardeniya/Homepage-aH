@@ -1,26 +1,106 @@
-/* styles.css */ @tailwind base; @tailwind components; @tailwind utilities;
+/* styles.css */
 
-body { @apply bg-gray-100 text-gray-900; }
+body {
+    background-color: #f7fafc; 
+    color: #1a202c; 
+}
 
-.container { @apply max-w-6xl mx-auto px-6; }
+.container {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
 
-header { @apply flex justify-between items-center py-4; }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem; 
+    padding-bottom: 1rem;
+}
 
-.navbar { @apply flex space-x-6; }
+.navbar {
+    display: flex;
+    gap: 1.5rem; 
+}
 
-.nav-link { @apply text-gray-700 hover:text-black transition-colors; }
+.nav-link {
+    color: #4a5568;
+    transition: color 0.2s;
+}
 
-.hero { @apply flex flex-col md:flex-row items-center py-12; }
+.nav-link:hover {
+    color: #000; /* hover-- text-black */
+}
 
-.hero img { @apply w-full md:w-1/2 rounded-lg shadow-lg; }
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem; 
+}
 
-.hero-text { @apply md:w-1/2 text-center md:text-left px-6; }
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+    }
+}
 
-.cta-button { @apply bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition; }
+.hero img {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+}
 
-.social-links { @apply flex space-x-4; }
+.hero-text {
+    width: 100%;
+    text-align: center; 
+    padding-left: 1.5rem; 
+    padding-right: 1.5rem; 
+}
 
-.social-links a { @apply text-gray-700 hover:text-blue-600 text-xl; }
+@media (min-width: 768px) {
+    .hero-text {
+        text-align: left; 
+    }
+}
 
-footer { @apply text-center py-6 text-gray-600; }
+.cta-button {
+    background-color: #3182ce; /* bcg blue */
+    color: #fff;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
 
+.cta-button:hover {
+    background-color: #2b6cb0; 
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: #4a5568; 
+    font-size: 1.25rem; 
+    transition: color 0.2s;
+}
+
+.social-links a:hover {
+    color: #3182ce; 
+}
+
+footer {
+    text-align: center;
+    padding-top: 1.5rem; 
+    padding-bottom: 1.5rem; 
+    color: #718096;
+}
